@@ -9,7 +9,7 @@ services:
   server_config: {user_table: users}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {test_mode: true}
+  server_config: {test_mode: true, custom_smtp: false}
 startup: {type: form, module: frmLogin}
 package_name: Tickbox_Investment_Portfolio
 allow_embedding: false
