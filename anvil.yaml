@@ -1,8 +1,90 @@
-allow_embedding: false
-package_name: M3_App_1
-name: M3 App 1
-startup_form: Form1
-renamed: true
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 dependencies: []
-services: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: true, enable_automatically: true, use_email: true,
+    confirm_email: true}
+  server_config: {user_table: users}
+startup: {type: form, module: frmLogin}
+package_name: Tickbox_Investment_Portfolio
+allow_embedding: false
+name: Tickbox Investment Portfolio
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+metadata: {title: Tickbox Investment Portfolio, description: Manage the split distribution of your investment funds.,
+  logo_img: 'asset:Money Vortex.jpg'}
+startup_form: null
+db_schema:
+  tbl_user:
+    client: none
+    server: full
+    columns:
+    - name: UserID
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: UserName
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: FirstName
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: Surname
+      admin_ui: {width: 200, order: 3}
+      type: string
+    title: tbl_User
+  users:
+    client: none
+    server: full
+    columns:
+    - name: email
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {order: 1, width: 200}
+      type: bool
+    - name: last_login
+      admin_ui: {order: 2, width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {order: 4, width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {order: 5, width: 200}
+      type: bool
+    - name: signed_up
+      admin_ui: {order: 6, width: 200}
+      type: datetime
+    - name: FirstName
+      admin_ui: {width: 200, order: 7}
+      type: string
+    - name: Surname
+      admin_ui: {width: 200, order: 8}
+      type: string
+    title: Users
+  portfolio:
+    client: none
+    server: full
+    columns:
+    - name: PFID
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: UserID
+      admin_ui: {width: 200, order: 1}
+      type: link_single
+      target: tbl_user
+    - name: PFName
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: Invested
+      admin_ui: {width: 200, order: 3}
+      type: number
+    - name: User
+      admin_ui: {width: 200, order: 4}
+      type: link_single
+      target: users
+    title: Portfolio
+renamed: true
