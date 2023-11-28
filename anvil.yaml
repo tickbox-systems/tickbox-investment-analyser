@@ -5,11 +5,12 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true,
-    confirm_email: true}
+    confirm_email: false}
   server_config: {user_table: users}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {test_mode: true, custom_smtp: false}
+  server_config: {test_mode: true, custom_smtp: false, smtp_user: apikey, smtp_encryption: '',
+    smtp_port: 25, smtp_host: smtp.sendgrid.net, smtp_password: RIndxUNOE+8eCvrAt7TILY/otDXi3JRqwRKhRLXdbx2J5oEnU/8iKNCvZ0x+R9pazBu0vKKpo5TKKKNPku0Ay+qUE0w0H7AAsW2f/+byYRtWQs2Av0ByP0KZZpkj9Uo9hvvRs3Wy3IZkpH3KjfG5/Ga9yffy3GnwpLiadAPwbrgPBNaQhbLXrpSodMpCUlG44KLadRtaNjVZiek9pBfBymnxFIEAaIsqSfCC3XUTzQbdV5Qoi57jB5Xp/XXuyQ==}
 startup: {type: form, module: frmLogin}
 package_name: Tickbox_Investment_Portfolio
 allow_embedding: false
