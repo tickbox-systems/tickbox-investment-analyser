@@ -1,6 +1,8 @@
 unique_ids:
   forms:
+    frmMyPortfolio.RowTemplate1: '1701183368622265859986639.20352'
     frmLogin: WF3COLL2D6ZRDG4IHUPAQVBF6TCNQEE7
+    frmMyPortfolio: '1701182375711588583677650.6805'
   modules: {}
   server_modules: {}
   assets:

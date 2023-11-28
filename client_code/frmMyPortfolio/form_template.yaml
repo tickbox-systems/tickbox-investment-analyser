@@ -1,0 +1,45 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: outlined_card_1
+    properties: {role: outlined-card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'OWEHGL,MBORHZ'}
+    components:
+    - name: label_2
+      properties: {text: 'Create your portfolios here - each one can have multiple
+          funds allocated to it including % distribution.
+
+
+          Give them a name such as "60/40 Dividends/Long Bonds".
+
+          '}
+      type: Label
+      layout_properties: {grid_position: 'RLIUFH,YXBIBT'}
+    - name: data_grid_1
+      properties:
+        columns:
+        - {id: JKSDUP, title: Column 1, data_key: column_1}
+        - {id: VJQQOR, title: Column 2, data_key: column_2}
+        - {id: OJLQEN, title: Column 3, data_key: column_3}
+      type: DataGrid
+      components:
+      - name: repeating_panel_1
+        properties: {item_template: frmMyPortfolio.RowTemplate1}
+        type: RepeatingPanel
+      layout_properties: {grid_position: 'SUPKEW,QDVHKH'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- name: label_1
+  properties: {text: My Portfolio}
+  type: Label
+  layout_properties: {slot: title}

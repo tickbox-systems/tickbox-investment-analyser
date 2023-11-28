@@ -68,6 +68,9 @@ db_schema:
     - name: Surname
       admin_ui: {width: 200, order: 8}
       type: string
+    - name: email_confirmation_key
+      admin_ui: {width: 200}
+      type: string
     title: Users
   portfolio:
     client: none
@@ -87,8 +90,32 @@ db_schema:
       admin_ui: {width: 200, order: 3}
       type: number
     - name: User
-      admin_ui: {width: 200, order: 4}
+      admin_ui: {order: 0.5, width: 200}
       type: link_single
       target: users
     title: Portfolio
+  portfolioholding:
+    client: none
+    server: full
+    columns:
+    - name: Portfolio
+      admin_ui: {width: 200, order: 0}
+      type: link_single
+      target: portfolio
+    - name: Ticker
+      admin_ui: {width: 200, order: 1}
+      type: link_single
+      target: ticker
+    title: PortfolioHolding
+  ticker:
+    client: none
+    server: full
+    columns:
+    - name: InvtName
+      admin_ui: {order: 1, width: 200}
+      type: string
+    - name: InvCode
+      admin_ui: {order: 0.5, width: 200}
+      type: string
+    title: Ticker
 renamed: true
